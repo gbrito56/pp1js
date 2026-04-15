@@ -1,0 +1,113 @@
+/*Objetivo:
+Hacer un programa en JavaScript que trabaje con un array de usuarios como este:
+
+const usuarios = [
+{"id":1,"first_name":"Harmony","last_name":"Twohig","email":"htwohig0@businesswire.com","gender":"Female","ip_address":"188.185.115.201"}
+];
+
+Lo van a tener que generar con mockaroo, con 50 registros es suficiente, el formato de descarga debe ser JSON, el resto de valores dejenlos por defecto.
+
+En base a los datos descargados:
+
+1) Agregar un buscador con prompt, donde se ingrese el ID del usuario, el sistema debe mostrar por consola todos los datos del usuario seleccionado, 
+en caso de no existir debe mostrar una alerta de usuario no encontrado.
+
+2) Reducir a una nueva variable los datos de los géneros de los usuarios y contar cuantos usuarios hay de cada género.
+*/
+
+const usuarios = [
+{"id":1,"first_name":"Kathye","last_name":"Sutterfield","email":"ksutterfield0@github.io","gender":"Genderqueer","ip_address":"91.128.137.216"},
+{"id":2,"first_name":"Frannie","last_name":"Klossek","email":"fklossek1@uol.com.br","gender":"Male","ip_address":"39.217.53.237"},
+{"id":3,"first_name":"Yettie","last_name":"Pochet","email":"ypochet2@cbc.ca","gender":"Female","ip_address":"199.239.222.101"},
+{"id":4,"first_name":"Lucas","last_name":"Beig","email":"lbeig3@sfgate.com","gender":"Male","ip_address":"116.30.115.143"},
+{"id":5,"first_name":"Perry","last_name":"MacGeaney","email":"pmacgeaney4@ovh.net","gender":"Male","ip_address":"11.224.62.192"},
+{"id":6,"first_name":"Madeline","last_name":"Cantos","email":"mcantos5@dyndns.org","gender":"Non-binary","ip_address":"15.63.40.138"},
+{"id":7,"first_name":"Dwayne","last_name":"Betteriss","email":"dbetteriss6@japanpost.jp","gender":"Male","ip_address":"73.19.171.116"},
+{"id":8,"first_name":"Bar","last_name":"Antonietti","email":"bantonietti7@sina.com.cn","gender":"Male","ip_address":"32.83.96.53"},
+{"id":9,"first_name":"Madelene","last_name":"Tooke","email":"mtooke8@msu.edu","gender":"Female","ip_address":"251.233.214.255"},
+{"id":10,"first_name":"Debor","last_name":"Brand","email":"dbrand9@eepurl.com","gender":"Female","ip_address":"79.67.84.80"},
+{"id":11,"first_name":"Lizbeth","last_name":"Genever","email":"lgenevera@reference.com","gender":"Female","ip_address":"49.144.239.158"},
+{"id":12,"first_name":"Jessie","last_name":"Godfree","email":"jgodfreeb@google.co.jp","gender":"Male","ip_address":"166.87.134.238"},
+{"id":13,"first_name":"Patience","last_name":"Fairfull","email":"pfairfullc@ycombinator.com","gender":"Female","ip_address":"160.20.134.93"},
+{"id":14,"first_name":"Margalo","last_name":"Vogl","email":"mvogld@epa.gov","gender":"Female","ip_address":"236.171.216.26"},
+{"id":15,"first_name":"Jane","last_name":"Kippax","email":"jkippaxe@rambler.ru","gender":"Female","ip_address":"167.255.138.182"},
+{"id":16,"first_name":"Stephenie","last_name":"Foxten","email":"sfoxtenf@examiner.com","gender":"Female","ip_address":"201.194.46.114"},
+{"id":17,"first_name":"Mella","last_name":"Paramor","email":"mparamorg@yandex.ru","gender":"Female","ip_address":"202.238.78.70"},
+{"id":18,"first_name":"Adelaida","last_name":"Broadbury","email":"abroadburyh@cnbc.com","gender":"Female","ip_address":"29.251.31.146"},
+{"id":19,"first_name":"Gilbertina","last_name":"McDougall","email":"gmcdougalli@taobao.com","gender":"Female","ip_address":"35.204.87.31"},
+{"id":20,"first_name":"Brietta","last_name":"Loynes","email":"bloynesj@hibu.com","gender":"Female","ip_address":"168.209.121.113"},
+{"id":21,"first_name":"Ginni","last_name":"Aupol","email":"gaupolk@yellowpages.com","gender":"Female","ip_address":"248.127.128.101"},
+{"id":22,"first_name":"Dulcea","last_name":"Paprotny","email":"dpaprotnyl@reuters.com","gender":"Female","ip_address":"200.121.95.192"},
+{"id":23,"first_name":"Nicoli","last_name":"Nodes","email":"nnodesm@npr.org","gender":"Female","ip_address":"97.98.183.8"},
+{"id":24,"first_name":"Doro","last_name":"Dabner","email":"ddabnern@wisc.edu","gender":"Non-binary","ip_address":"32.249.112.179"},
+{"id":25,"first_name":"Bernarr","last_name":"McHardy","email":"bmchardyo@spotify.com","gender":"Male","ip_address":"110.147.165.162"},
+{"id":26,"first_name":"Rosamond","last_name":"Joannidi","email":"rjoannidip@cnet.com","gender":"Female","ip_address":"210.82.239.223"},
+{"id":27,"first_name":"Danette","last_name":"Baynton","email":"dbayntonq@wsj.com","gender":"Female","ip_address":"215.47.243.164"},
+{"id":28,"first_name":"Tobe","last_name":"Ferrettino","email":"tferrettinor@sourceforge.net","gender":"Female","ip_address":"59.149.31.95"},
+{"id":29,"first_name":"Vidovik","last_name":"Chamberlaine","email":"vchamberlaines@myspace.com","gender":"Male","ip_address":"60.211.35.190"},
+{"id":30,"first_name":"Carlie","last_name":"Constantinou","email":"cconstantinout@blogger.com","gender":"Male","ip_address":"179.64.148.179"},
+{"id":31,"first_name":"Janey","last_name":"Abrahart","email":"jabrahartu@reddit.com","gender":"Female","ip_address":"37.182.228.123"},
+{"id":32,"first_name":"Drugi","last_name":"Muino","email":"dmuinov@fastcompany.com","gender":"Male","ip_address":"91.139.13.175"},
+{"id":33,"first_name":"Robinia","last_name":"Dictus","email":"rdictusw@telegraph.co.uk","gender":"Female","ip_address":"161.70.49.28"},
+{"id":34,"first_name":"Kayle","last_name":"Michael","email":"kmichaelx@addtoany.com","gender":"Female","ip_address":"120.250.106.184"},
+{"id":35,"first_name":"Weston","last_name":"Hebson","email":"whebsony@bigcartel.com","gender":"Male","ip_address":"217.143.125.13"},
+{"id":36,"first_name":"Paxon","last_name":"Seer","email":"pseerz@sbwire.com","gender":"Genderqueer","ip_address":"191.248.29.85"},
+{"id":37,"first_name":"Sayer","last_name":"Gilliam","email":"sgilliam10@csmonitor.com","gender":"Male","ip_address":"20.141.137.147"},
+{"id":38,"first_name":"Tessie","last_name":"Bliss","email":"tbliss11@bravesites.com","gender":"Female","ip_address":"58.183.55.196"},
+{"id":39,"first_name":"Merry","last_name":"Bartlam","email":"mbartlam12@google.ru","gender":"Male","ip_address":"187.91.17.74"},
+{"id":40,"first_name":"Althea","last_name":"Adamkiewicz","email":"aadamkiewicz13@walmart.com","gender":"Genderqueer","ip_address":"73.147.6.158"},
+{"id":41,"first_name":"Anselma","last_name":"De La Haye","email":"adelahaye14@mysql.com","gender":"Genderfluid","ip_address":"61.156.85.86"},
+{"id":42,"first_name":"Leora","last_name":"Condliffe","email":"lcondliffe15@narod.ru","gender":"Female","ip_address":"29.126.72.164"},
+{"id":43,"first_name":"Colan","last_name":"Porcher","email":"cporcher16@wiley.com","gender":"Male","ip_address":"136.149.8.0"},
+{"id":44,"first_name":"Stefano","last_name":"Pippard","email":"spippard17@hatena.ne.jp","gender":"Polygender","ip_address":"63.184.79.157"},
+{"id":45,"first_name":"Culley","last_name":"Sebring","email":"csebring18@webeden.co.uk","gender":"Male","ip_address":"73.54.214.96"},
+{"id":46,"first_name":"Conny","last_name":"Keave","email":"ckeave19@marriott.com","gender":"Male","ip_address":"151.58.229.94"},
+{"id":47,"first_name":"Harlene","last_name":"Hastilow","email":"hhastilow1a@businessinsider.com","gender":"Female","ip_address":"192.211.96.205"},
+{"id":48,"first_name":"Crysta","last_name":"Delagua","email":"cdelagua1b@apple.com","gender":"Female","ip_address":"58.81.38.17"},
+{"id":49,"first_name":"Cos","last_name":"Mingard","email":"cmingard1c@webmd.com","gender":"Male","ip_address":"29.94.6.77"},
+{"id":50,"first_name":"Von","last_name":"Blanko","email":"vblanko1d@ezinearticles.com","gender":"Male","ip_address":"243.232.62.174"}];
+
+let repetir = "si";
+
+while (repetir === "si") {
+    let idBuscado = parseInt(prompt("Por favor, ingrese el ID del usuario que desea buscar:"));
+
+    const usuarioEncontrado = usuarios.find((usuario) => {
+        return usuario.id === idBuscado;
+    });
+
+    if (usuarioEncontrado) {
+        console.log("\nUsuario encontrado:");
+        console.log(`\nID: ${usuarioEncontrado.id}`);
+        console.log(`Nombre: ${usuarioEncontrado.first_name} ${usuarioEncontrado.last_name}`);
+        console.log(`Email: ${usuarioEncontrado.email}`);
+        console.log(`Género: ${usuarioEncontrado.gender}`);
+        console.log(`IP Address: ${usuarioEncontrado.ip_address}`);
+        repetir = "no";
+    } else {
+        console.log(`Usuario no encontrado. Número de ID (${idBuscado}) inexistente.\n`);
+        repetir = prompt("Usuario no encontrado. ¿Desea intentar nuevamente? (si/no)").toLowerCase();
+    }
+}
+
+console.log("\nExtrayendo datos de género de los usuarios:");
+
+const generos = usuarios.map((usuario) => {
+    return usuario.gender;
+});
+
+console.log(generos);
+
+const conteoGeneros = generos.reduce((contador, genero) => {
+    if (contador[genero]) {
+        contador[genero]++;
+    } else {
+        contador[genero] = 1;
+    }
+    return contador;
+}, {});
+
+console.log("\nConteo de usuarios por género:");
+for (const genero in conteoGeneros) {
+    console.log(`${genero}: ${conteoGeneros[genero]}`);
+}
