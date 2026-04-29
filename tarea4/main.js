@@ -1,0 +1,145 @@
+const usuarios = [
+    {"id":1,"first_name":"Noelyn","last_name":"Mitro","bank":"FIRST FINANCIAL BANK","city":"Wudil","country":"Nigeria","salary":8476,"expenses":3482},
+    {"id":2,"first_name":"Jessa","last_name":"Whillock","bank":"CITY NATIONAL BANK","city":"Ambositra","country":"Madagascar","salary":7585,"expenses":4650},
+    {"id":3,"first_name":"Helene","last_name":"Culpen","bank":"BANK OF AMERICA","city":"Tambac","country":"Philippines","salary":7026,"expenses":4377},
+    {"id":4,"first_name":"Marlee","last_name":"Grishagin","bank":"BMO HARRIS BANK","city":"Zgornje Bitnje","country":"Slovenia","salary":8765,"expenses":4494},
+    {"id":5,"first_name":"Fran","last_name":"McPartlin","bank":"BANK OF AMERICA","city":"Alto de São Sebastião","country":"Portugal","salary":7291,"expenses":3950},
+    {"id":6,"first_name":"Griselda","last_name":"Gibb","bank":"FIRSTBANK","city":"Zemio","country":"Central African Republic","salary":7439,"expenses":3732},
+    {"id":7,"first_name":"Phyllys","last_name":"Dawbery","bank":"Raiffeisenbank Turnau-St. Lorenzen eGen","city":"Copa","country":"Peru","salary":8078,"expenses":3645},
+    {"id":8,"first_name":"Lynnet","last_name":"Sleightholm","bank":"CITIZENS BANK","city":"Mercaderes","country":"Colombia","salary":8100,"expenses":4508},
+    {"id":9,"first_name":"Angelo","last_name":"Andrivot","bank":"UNION BANK & TRUST","city":"Aimorés","country":"Brazil","salary":7536,"expenses":3657},
+    {"id":10,"first_name":"Earvin","last_name":"Ducket","bank":"Raiffeisenbank Region Eferding eGen","city":"Mayahi","country":"Niger","salary":7291,"expenses":4885},
+    {"id":11,"first_name":"Hinda","last_name":"Braid","bank":"PNC BANK","city":"Xi’an","country":"China","salary":8049,"expenses":3926},
+    {"id":12,"first_name":"Chery","last_name":"Cockland","bank":"KEYBANK","city":"Pedro Juan Caballero","country":"Paraguay","salary":8433,"expenses":3892},
+    {"id":13,"first_name":"Othello","last_name":"Checchetelli","bank":"ANDBANK ESPAÑA BANCA PRIVADA, S.A.","city":"Qionghu","country":"China","salary":8380,"expenses":3315},
+    {"id":14,"first_name":"Dur","last_name":"Sessions","bank":"VR Bank Mittlere Oberpfalz eG","city":"Kharlu","country":"Russia","salary":8322,"expenses":4466},
+    {"id":15,"first_name":"Elene","last_name":"Presidey","bank":"UMPQUA BANK","city":"Vales","country":"Portugal","salary":7551,"expenses":3129},
+    {"id":16,"first_name":"Dougy","last_name":"Easey","bank":"NBH BANK","city":"Yuquan","country":"China","salary":8069,"expenses":3154},
+    {"id":17,"first_name":"Lucienne","last_name":"Rosbottom","bank":"Kreissparkasse Rhein-Hunsrück","city":"Kanye","country":"Botswana","salary":7542,"expenses":4845},
+    {"id":18,"first_name":"Elyn","last_name":"Gepp","bank":"GLACIER BANK","city":"Åmål","country":"Sweden","salary":8713,"expenses":4919},
+    {"id":19,"first_name":"Lita","last_name":"Kordas","bank":"VR Bank Amberg-Sulzbach eG","city":"Ресен","country":"Macedonia","salary":7831,"expenses":3157},
+    {"id":20,"first_name":"Stefanie","last_name":"Rummings","bank":"CENTRAL BANK","city":"Encontrados","country":"Venezuela","salary":8777,"expenses":3039},
+    {"id":21,"first_name":"Rhona","last_name":"Worster","bank":"FIRST SAVINGS BANK","city":"Amvrosiyivka","country":"Ukraine","salary":7556,"expenses":3920},
+    {"id":22,"first_name":"Lanie","last_name":"Creamen","bank":"GLACIER BANK","city":"Shuanghe","country":"China","salary":8378,"expenses":3416},
+    {"id":23,"first_name":"Gal","last_name":"Leddy","bank":"VESTJYSK BANK A/S","city":"Chang Klang","country":"Thailand","salary":7596,"expenses":4393},
+    {"id":24,"first_name":"Lurette","last_name":"Pedroli","bank":"FIRST STATE BANK","city":"Hebeitun","country":"China","salary":8770,"expenses":4250},
+    {"id":25,"first_name":"Roberta","last_name":"Pinke","bank":"Westpac Europe GmbH","city":"Russas","country":"Brazil","salary":7326,"expenses":3325},
+    {"id":26,"first_name":"Arlinda","last_name":"Gerson","bank":"Kommuninvest i Sverige Aktiebolag","city":"Semenivka","country":"Ukraine","salary":7777,"expenses":3308},
+    {"id":27,"first_name":"Nesta","last_name":"Samart","bank":"SHINHAN BANK EUROPE GmbH","city":"Krasnodon","country":"Ukraine","salary":7021,"expenses":3877},
+    {"id":28,"first_name":"Kyrstin","last_name":"Hub","bank":"OTP Bank Nyrt. Niederlassung Deutschland","city":"Pangal Sur","country":"Philippines","salary":7057,"expenses":3012},
+    {"id":29,"first_name":"Dolores","last_name":"Drawmer","bank":"FIRST NATIONAL BANK","city":"Jamundí","country":"Colombia","salary":7137,"expenses":4901},
+    {"id":30,"first_name":"Ermengarde","last_name":"Illidge","bank":"COMERICA BANK","city":"Motala","country":"Sweden","salary":8751,"expenses":4474},
+    {"id":31,"first_name":"Farlee","last_name":"Mugridge","bank":"DZ HYP AG","city":"Grigiškės","country":"Lithuania","salary":8854,"expenses":4354},
+    {"id":32,"first_name":"Paulo","last_name":"Larvor","bank":"BANCO FIORENTINO - MUGELLO IMPRUNETA SIGNA - CREDITO COOPERATIVO - SOCIETA' COOPERATIVA","city":"Landvetter","country":"Sweden","salary":7335,"expenses":3907},
+    {"id":33,"first_name":"Christalle","last_name":"Jovic","bank":"SIMMONS FIRST NATL BK","city":"Concepción","country":"Chile","salary":7635,"expenses":4568},
+    {"id":34,"first_name":"Ofilia","last_name":"De Rye Barrett","bank":"VR Bank Donau-Oberschwaben eG","city":"Sanjian","country":"China","salary":7772,"expenses":3081},
+    {"id":35,"first_name":"Hephzibah","last_name":"Otterwell","bank":"VALLEY NATIONAL BANK","city":"Järna","country":"Sweden","salary":8514,"expenses":4561},
+    {"id":36,"first_name":"Danyette","last_name":"Crolly","bank":"UNITED COMMUNITY BANK","city":"Mingguang","country":"China","salary":7158,"expenses":4858},
+    {"id":37,"first_name":"Berget","last_name":"Danher","bank":"PNC BANK","city":"Curry","country":"Philippines","salary":7478,"expenses":4951},
+    {"id":38,"first_name":"Jesselyn","last_name":"Martinson","bank":"ARAB BANKING CORPORATION SA","city":"Sukowono","country":"Indonesia","salary":8099,"expenses":3912},
+    {"id":39,"first_name":"Alisa","last_name":"Jirsa","bank":"Cicobail","city":"Tabira","country":"Brazil","salary":7415,"expenses":3559},
+    {"id":40,"first_name":"Marcile","last_name":"Ranson","bank":"State Bank of India","city":"Drohobych","country":"Ukraine","salary":8532,"expenses":3059},
+    {"id":41,"first_name":"Junie","last_name":"Vesco","bank":"LIDION BANK PLC","city":"Longba","country":"China","salary":8808,"expenses":3807},
+    {"id":42,"first_name":"Dorthea","last_name":"Phython","bank":"MBH Jelzálogbank Nyilvánosan Működő Részvénytársaság","city":"Sobreira","country":"Portugal","salary":8183,"expenses":4558},
+    {"id":43,"first_name":"Kelvin","last_name":"Wyld","bank":"Sparkasse Borken-Schwalmstadt","city":"Huangxi","country":"China","salary":8465,"expenses":3317},
+    {"id":44,"first_name":"Grover","last_name":"Omar","bank":"Quirin Privatbank AG","city":"Gujun","country":"China","salary":7114,"expenses":3961},
+    {"id":45,"first_name":"Thomasina","last_name":"Gillis","bank":"FIRST NATIONAL BANK","city":"Bébédja","country":"Chad","salary":8578,"expenses":3246},
+    {"id":46,"first_name":"Johnette","last_name":"Shiliton","bank":"TARGOBANK AG","city":"Shisui","country":"Japan","salary":7196,"expenses":3143},
+    {"id":47,"first_name":"Rachele","last_name":"Daniells","bank":"UBS Europe SE","city":"Zakan-Yurt","country":"Russia","salary":8794,"expenses":4939},
+    {"id":48,"first_name":"Mommy","last_name":"Aumerle","bank":"USALLIANCE FEDERAL CREDIT UNION","city":"Dorchester","country":"Canada","salary":7288,"expenses":3546},
+    {"id":49,"first_name":"Eamon","last_name":"Filyakov","bank":"FIRST FINANCIAL BANK","city":"Osvaldo Cruz","country":"Brazil","salary":8157,"expenses":4757},
+    {"id":50,"first_name":"Wynn","last_name":"Keene","bank":"FIRST NATIONAL BANK","city":"Briteiros Santa Leocádia","country":"Portugal","salary":8624,"expenses":3734}
+]
+
+//1. Función de balance mensual
+
+function calcularAhorro(usuario) {
+    const ahorro = usuario.salary - usuario.expenses
+    return ahorro
+}
+
+const balanceMensual = (usuario) => {
+    const resultado = {}
+    resultado.nombre = `${usuario.first_name} ${usuario.last_name}`;
+    resultado.banco = usuario.bank;
+    resultado.ahorro = calcularAhorro(usuario)
+    return resultado
+}
+
+let repetir = 'si';
+
+while (repetir === 'si') {
+    let idBuscado = parseInt(prompt("Ingrese el id del usuario:"));
+    
+    const usuarioEncontrado = usuarios.find((usuario) => {
+        return usuario.id === idBuscado;
+    });
+
+    if (usuarioEncontrado) {
+        console.log('Usuario encontrado:')
+        console.log(balanceMensual(usuarioEncontrado));
+        repetir = "no";
+    } else {
+        console.log(`Usuario no encontrado. Número de ID (${idBuscado}) inexistente.\n`);
+        repetir = prompt("Usuario no encontrado. ¿Desea intentar nuevamente? (si/no)").toLowerCase();
+    }
+}
+
+/* 2) Clasificación financiera (usar switch o ternario)
+ahorro menor a 3000 → "Ahorro bajo"
+entre 3000 y 4500 → "Ahorro medio"
+mayor a 4500 → "Ahorro alto" */
+
+const clasificarPorAhorro = (ahorro) => {
+    return ahorro < 3000 ? 'Ahorro bajo' : ahorro <= 4500 ? 'Ahorro medio' : 'Ahorro alto'    
+}
+
+/* usuarios.forEach((user) => {
+    const msg = `ID: ${user.id} - Clasificación: ${clasificarPorAhorro(calcularAhorro(user))}`;
+    console.log(msg)
+})
+ */
+
+const clasificacionPorAhorro = (usuarios) => {
+    const resultado = {}
+    usuarios.forEach(usuario => {
+        const clave = `${usuario.first_name} ${usuario.last_name}`
+        resultado[clave] = `${clasificarPorAhorro(calcularAhorro(usuario))}`;
+    })
+    return resultado;
+}
+
+console.log('Clasificación financiera de usuarios:')
+console.log(clasificacionPorAhorro(usuarios))
+
+/* 3) Cantidad de ahorro por banco
+Agrupar los usuarios por banco y mostrar:
+nombre del banco
+cuántos usuarios tiene cada banco
+ahorro total de cada banco
+ */
+
+const agruparPor = (array, clave) => {
+    const resultado = {};
+
+    array.forEach(item => {
+        const valorClave = item[clave];
+        
+        if (!resultado[valorClave])
+            resultado[valorClave] = {
+                cantidadUsuarios: 0,
+                ahorroTotal: 0,
+            };
+        resultado[valorClave].cantidadUsuarios++;
+        resultado[valorClave].ahorroTotal += calcularAhorro(item);
+    });
+    
+    return resultado;
+}
+
+console.log('Agrupar por banco:')
+const agruparPorBanco = agruparPor(usuarios, 'bank')
+console.log(agruparPorBanco)
+console.log('Agrupar por país:')
+const agruparPorPais = agruparPor(usuarios, 'country')
+console.log(agruparPorPais)
